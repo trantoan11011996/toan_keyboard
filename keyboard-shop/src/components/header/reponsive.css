@@ -1,0 +1,22 @@
+@media only screen and (max-width: 992px) {
+    .header-logo-first{
+      display: none;
+    }
+    .header-logo-seccond{
+      display: block;
+    }
+    .wrap-header{
+      padding: 5px 10px;
+    }
+    .navbar-content{
+      display: none;
+    }
+    .navbar-icon-content{ 
+      display: flex;
+    }
+  }
+  @media only screen and (min-width : 993px){
+    .show{
+        display: none;
+    }
+  }
