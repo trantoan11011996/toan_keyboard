@@ -1,0 +1,29 @@
+.image-homepage{
+    background-color: black;
+    position: relative;
+}
+.image-home img{
+    height: 600px;
+}
+.btn-product-page{
+    position: absolute;
+    bottom: 70px;
+    text-align: center;
+    width: 100%;
+}
+.btn-product-page h1{
+    color: white;
+    font-size: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn-product-page button{
+    outline: none;
+    border: none;
+    padding: 6px 18px 6px 18px;
+    font-size: 12px;
+    font-weight: 500;
+}
+.btn-product-page button:hover{
+    transform: scale(1.1);
+}
+

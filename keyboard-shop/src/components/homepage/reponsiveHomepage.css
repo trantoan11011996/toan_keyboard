@@ -1,0 +1,19 @@
+
+@media only screen and (max-width : 768px){
+    .col-iamge-homepgae-seccond{
+        margin-top: 150px;
+    }
+    .btn-product-page{
+        position: absolute;
+        bottom: calc(50% - 40px);
+        text-align: center;
+        width: 100%;
+    }
+    .btn-product-page h1{
+        color: rgb(0,255,49);
+    }
+    .btn-product-page button{
+        background-color: rgb(0,255,49);
+        color: black;
+    }
+}

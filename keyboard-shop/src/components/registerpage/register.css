@@ -1,0 +1,53 @@
+.register-page{
+    background-color: rgb(243,243,243);
+    height: 400px;
+}
+.register-title{
+    font-weight: 800;
+    font-size: 35px;
+    padding-top: 50px;
+}
+.form-register-page{
+    margin: 0 auto;
+    max-width: 600px;
+}
+.form-control-register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.link-forgot-pass{
+    width: 500px;
+    text-align: left;
+}
+.form-register{
+    margin-top: 15px;
+    width: 500px;
+}
+.btn-register{
+    margin-top: 20px;
+    background-color: black;
+    color: rgb(8, 235, 54);
+    padding: 8px 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.btn-register:hover{
+    transform: scale(1.05);
+}
+.create-account{
+    margin-top: 15px;
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.form-register{
+    border-radius: 0;
+    outline: none;
+    color: white;
+}
+.form-register:active{
+    border: 1px solid black;
+    outline: none;
+}

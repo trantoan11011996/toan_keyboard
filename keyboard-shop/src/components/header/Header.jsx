@@ -5,6 +5,10 @@ import {
   AiOutlineMenu,
   AiOutlineClose,
   AiOutlineArrowLeft,
+  AiOutlineUser,
+  AiFillYoutube,
+  AiFillFacebook,
+  AiFillInstagram,
 } from "react-icons/ai";
 import "../header/header.css";
 import "../header/reponsive.css";
@@ -79,7 +83,7 @@ export default function Header() {
         <div className="container-header">
           <Row className="navbar-header">
             <Col className="header-logo-first col-logo" lg={2}>
-              <Link to={"/home-page"}>
+              <Link to={"/"}>
                 <div className="navbar-logo">
                   <img
                     className="header-logo"
@@ -92,7 +96,6 @@ export default function Header() {
             <Col className="col-navbar-content" lg={8} md={4} sm={4}>
               <div className="navbar-content">
                 <NavbarContent />
-               
               </div>
               <div className="navbar-icon-content none">
                 {showSidebar ? (
@@ -103,7 +106,7 @@ export default function Header() {
               </div>
             </Col>
             <Col className="header-logo-seccond none col-logo" md={4} sm={4}>
-              <Link to={"/home-page"}>
+              <Link to={"/"}>
                 <div className="navbar-logo">
                   <img
                     className="header-logo"
@@ -125,8 +128,8 @@ export default function Header() {
         {Sidebarlist && (
           <div className="siderbar-list">
             <Nav className="nav-sidebar" activeKey="/home">
-              <Nav.Item className="nav-item-sidebar">
-                <Link className="nav-link-sidebar">Home</Link>
+              <Nav.Item className="nav-item-sidebar" onClick={()=>handleCloseSidebar()}>
+                <Link to={"/"} className="nav-link-sidebar">Home</Link>
               </Nav.Item>
               <Nav.Item
                 className="nav-item-sidebar sidebar-keyboard"
@@ -153,14 +156,25 @@ export default function Header() {
               <AiOutlineArrowLeft className="back-sidebar-icon"></AiOutlineArrowLeft>
             </div>
             <ul className="sidebar-category-list">
-              {categories.map((item,index)=>{
-                return(
-                  <li className="sidebar-category-item">{item.name}</li>
-                )
+              {categories.map((item, index) => {
+                return <li className="sidebar-category-item">{item.name}</li>;
               })}
             </ul>
           </div>
         )}
+        <div className="sidebar-login">
+          <div>
+            <Link to={"/login-page"} className="user-login" onClick={()=>handleCloseSidebar()}>
+              <AiOutlineUser className="login-icon-sidebar"></AiOutlineUser>
+              <p className="login-content-sidebar">Login</p>
+            </Link>
+          </div>
+          <div className="icon-sidebar">
+            <AiFillFacebook></AiFillFacebook>
+            <AiFillInstagram></AiFillInstagram>
+            <AiFillYoutube></AiFillYoutube>
+          </div>
+        </div>
       </div>
     </div>
   );

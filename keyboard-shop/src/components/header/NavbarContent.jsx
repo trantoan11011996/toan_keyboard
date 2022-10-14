@@ -39,7 +39,7 @@ export default function NavbarContent() {
       <Container className="navbar-product">
         <Nav className="me-auto nav-link">
           <Nav className="nav-home">
-            <Link className="nav-link-home link" to={"/home-page"}>
+            <Link className="nav-link-home link" to={"/"}>
               Home
             </Link>
           </Nav>
@@ -57,7 +57,7 @@ export default function NavbarContent() {
           >
               <Space className="dropdown-title">
                 KeyBoard Kit
-                <DownOutlined />
+             <AiOutlineArrowDown className="dropdow-icon"></AiOutlineArrowDown>
               </Space>
           </Dropdown>
           <Nav className="nav-discord">
@@ -71,7 +71,7 @@ export default function NavbarContent() {
             </Link>
           </Nav>
           <Nav className="nav-about">
-            <Link className="nav-link-about link" to={""}>
+            <Link className="nav-link-about link" to={"/about-page"}>
               About us
             </Link>
           </Nav>

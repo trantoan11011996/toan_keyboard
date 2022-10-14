@@ -1,0 +1,16 @@
+.about-page{
+    background-color: rgb(243,243,243);
+    height: 700px;
+    padding-top: 15px;
+}
+.about-page-content{
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+.about-page-content p {
+    font-weight: 550;
+}
+.about-content{
+    margin-top: 30px;
+}

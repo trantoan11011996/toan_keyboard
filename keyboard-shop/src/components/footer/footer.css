@@ -1,0 +1,66 @@
+.footer {
+  background-color: rgb(209, 209, 209);
+  padding-bottom: 30px;
+}
+.list-links-footer {
+  font-size: 16px;
+  text-align: left;
+}
+.list-links {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+.link-footer {
+  margin-top: 40px;
+}
+.list-links {
+  margin-top: 15px;
+}
+.list-link-item {
+  color: rgb(104, 92, 92);
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.list-link-item:hover {
+  color: black;
+  text-decoration: underline;
+}
+.discord-footer {
+  margin-top: 40px;
+}
+.discord-header-footer {
+  font-size: 16px;
+  text-align: left;
+}
+.discord-content-footer {
+  text-align: left;
+}
+.discord-link:hover {
+  text-decoration: underline;
+}
+.link-icon-footer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.icon-footer {
+  font-size: 16px;
+}
+.icon-footer {
+  cursor: pointer;
+}
+.icon-footer:hover {
+  transform: translateY(-2px);
+}
+.footer-border {
+  margin-top: 30px;
+  height: 1px;
+  background-color: rgb(158, 153, 153);
+  width: 100%;
+}
+.footer-copyright {
+  margin-top: 20px;
+}

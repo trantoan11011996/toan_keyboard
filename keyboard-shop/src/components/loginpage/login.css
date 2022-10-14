@@ -1,0 +1,53 @@
+.login-page{
+    background-color: rgb(243,243,243);
+    height: 400px;
+}
+.login-title{
+    font-weight: 800;
+    font-size: 35px;
+    padding-top: 50px;
+}
+.form-login-page{
+    margin: 0 auto;
+    max-width: 600px;
+}
+.form-control-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.link-forgot-pass{
+    width: 500px;
+    text-align: left;
+}
+.form-login{
+    margin-top: 15px;
+    width: 500px;
+}
+.btn-login{
+    margin-top: 20px;
+    background-color: black;
+    color: rgb(8, 235, 54);
+    padding: 8px 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.btn-login:hover{
+    transform: scale(1.05);
+}
+.create-account{
+    margin-top: 15px;
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.form-login{
+    border-radius: 0;
+    outline: none;
+    color: white;
+}
+.form-login:active{
+    border: 1px solid black;
+    outline: none;
+}
