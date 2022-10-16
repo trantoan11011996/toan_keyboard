@@ -38,12 +38,12 @@ export default function NavbarContent() {
     <Navbar expand="lg">
       <Container className="navbar-product">
         <Nav className="me-auto nav-link">
-          <Nav className="nav-home">
+          <Nav className="nav-home nav-content">
             <Link className="nav-link-home link" to={"/"}>
               Home
             </Link>
           </Nav>
-          <Dropdown
+          <Dropdown className="nav-content"
             overlay={
               <Menu className="dropdow">
                 {categories.map((value, index) => {
@@ -60,17 +60,17 @@ export default function NavbarContent() {
              <AiOutlineArrowDown className="dropdow-icon"></AiOutlineArrowDown>
               </Space>
           </Dropdown>
-          <Nav className="nav-discord">
+          <Nav className="nav-discord nav-content">
             <Link className="nav-link-discord link" to={""}>
               Discord server
             </Link>
           </Nav>
-          <Nav className="nav-product">
+          <Nav className="nav-product nav-content">
             <Link className="nav-link-product link" to={"/product-page"}>
               Catalog
             </Link>
           </Nav>
-          <Nav className="nav-about">
+          <Nav className="nav-about nav-content">
             <Link className="nav-link-about link" to={"/about-page"}>
               About us
             </Link>

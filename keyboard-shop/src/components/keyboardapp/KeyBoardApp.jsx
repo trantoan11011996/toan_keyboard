@@ -14,6 +14,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Dropdown from "react-bootstrap/Dropdown";
 import AboutPage from "../aboutpage/AboutPage";
+import AnnoucementDetail from "../annoucementDetail/AnnoucementDetail";
 
 
 export default function KeyBoardApp(){
@@ -30,6 +31,7 @@ export default function KeyBoardApp(){
             <Route path="/order-page" element={<OrderPage/>}></Route>
             <Route path="/login-page" element={<LoginPage/>}></Route>
             <Route path="/register-page" element={<RegisterPage/>}></Route>
+            <Route path="/annoucement-detail/:id" element={<AnnoucementDetail/>}></Route>
         </Routes>
         <Footer/>
         </div>

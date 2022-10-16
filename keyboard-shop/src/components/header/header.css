@@ -6,9 +6,15 @@
 }
 .wrap-header {
   background-color: rgb(209, 209, 209);
-  padding: 5px 150px
+  padding: 5px 0px;
 }
-
+.wrap-container{
+  display: flex;
+  justify-content: center;
+}
+.container-header{
+  width: 1600px;
+}
 .nav-link {
   display: flex;
   justify-content: center;
@@ -241,4 +247,7 @@
   padding-bottom: 20px;
   margin-bottom: 20px;
   font-size: 20px;
+}
+.nav-content{
+  margin: 0 10px;
 }

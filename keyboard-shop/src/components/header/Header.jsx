@@ -80,56 +80,65 @@ export default function Header() {
         </p>
       </div>
       <div className="wrap-header">
-        <div className="container-header">
-          <Row className="navbar-header">
-            <Col className="header-logo-first col-logo" lg={2}>
-              <Link to={"/"}>
-                <div className="navbar-logo">
-                  <img
-                    className="header-logo"
-                    src="https://cdn.shopify.com/s/files/1/0299/9497/5365/files/logo_9036676e-1709-4680-9f5a-97e5d10a93ae_90x.png?v=1630939482"
-                    alt="logo"
-                  ></img>
+        <Container className="wrap-container" fluid>
+          <div className="container-header">
+            <Row className="navbar-header">
+              <Col className="header-logo-first col-logo" lg={2}>
+                <Link to={"/"}>
+                  <div className="navbar-logo">
+                    <img
+                      className="header-logo"
+                      src="https://cdn.shopify.com/s/files/1/0299/9497/5365/files/logo_9036676e-1709-4680-9f5a-97e5d10a93ae_90x.png?v=1630939482"
+                      alt="logo"
+                    ></img>
+                  </div>
+                </Link>
+              </Col>
+              <Col className="col-navbar-content" lg={8} md={4} sm={4}>
+                <div className="navbar-content">
+                  <NavbarContent />
                 </div>
-              </Link>
-            </Col>
-            <Col className="col-navbar-content" lg={8} md={4} sm={4}>
-              <div className="navbar-content">
-                <NavbarContent />
-              </div>
-              <div className="navbar-icon-content none">
-                {showSidebar ? (
-                  <AiOutlineClose onClick={handleCloseSidebar}></AiOutlineClose>
-                ) : (
-                  <AiOutlineMenu onClick={handleOpenSidebar}></AiOutlineMenu>
-                )}
-              </div>
-            </Col>
-            <Col className="header-logo-seccond none col-logo" md={4} sm={4}>
-              <Link to={"/"}>
-                <div className="navbar-logo">
-                  <img
-                    className="header-logo"
-                    src="https://cdn.shopify.com/s/files/1/0299/9497/5365/files/logo_9036676e-1709-4680-9f5a-97e5d10a93ae_90x.png?v=1630939482"
-                    alt="logo"
-                  ></img>
+                <div className="navbar-icon-content none">
+                  {showSidebar ? (
+                    <AiOutlineClose
+                      onClick={handleCloseSidebar}
+                    ></AiOutlineClose>
+                  ) : (
+                    <AiOutlineMenu onClick={handleOpenSidebar}></AiOutlineMenu>
+                  )}
                 </div>
-              </Link>
-            </Col>
-            <Col className="col-navbar-user" lg={2} md={4} sm={4}>
-              <div className="navbar-login-register">
-                <NavbarUser />
-              </div>
-            </Col>
-          </Row>
-        </div>
+              </Col>
+              <Col className="header-logo-seccond none col-logo" md={4} sm={4}>
+                <Link to={"/"}>
+                  <div className="navbar-logo">
+                    <img
+                      className="header-logo"
+                      src="https://cdn.shopify.com/s/files/1/0299/9497/5365/files/logo_9036676e-1709-4680-9f5a-97e5d10a93ae_90x.png?v=1630939482"
+                      alt="logo"
+                    ></img>
+                  </div>
+                </Link>
+              </Col>
+              <Col className="col-navbar-user" lg={2} md={4} sm={4}>
+                <div className="navbar-login-register">
+                  <NavbarUser />
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </Container>
       </div>
       <div className={showSidebar ? "show" : "sidebar"}>
         {Sidebarlist && (
           <div className="siderbar-list">
             <Nav className="nav-sidebar" activeKey="/home">
-              <Nav.Item className="nav-item-sidebar" onClick={()=>handleCloseSidebar()}>
-                <Link to={"/"} className="nav-link-sidebar">Home</Link>
+              <Nav.Item
+                className="nav-item-sidebar"
+                onClick={() => handleCloseSidebar()}
+              >
+                <Link to={"/"} className="nav-link-sidebar">
+                  Home
+                </Link>
               </Nav.Item>
               <Nav.Item
                 className="nav-item-sidebar sidebar-keyboard"
@@ -164,7 +173,11 @@ export default function Header() {
         )}
         <div className="sidebar-login">
           <div>
-            <Link to={"/login-page"} className="user-login" onClick={()=>handleCloseSidebar()}>
+            <Link
+              to={"/login-page"}
+              className="user-login"
+              onClick={() => handleCloseSidebar()}
+            >
               <AiOutlineUser className="login-icon-sidebar"></AiOutlineUser>
               <p className="login-content-sidebar">Login</p>
             </Link>
