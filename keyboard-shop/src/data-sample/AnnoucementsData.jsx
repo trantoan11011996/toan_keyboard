@@ -10,7 +10,9 @@ const data = [
         "image_home" : "https://cdn.shopify.com/s/files/1/0299/9497/5365/articles/up_1_1500x.jpg?v=1665546973",
         "date" : `${monthNames[dateObj.getMonth()]}  ${dateObj.getFullYear()}`,
         "main_content" : "Introducing Nasa Howig & Herold. This is the couple for navy colorway, perfecting fit all type of layout and set up.",
-        "detail_content" : ["3 Display stands will be included for lucky raffle winners.","Product album","Maker"],
+        "detail_album" : "Product album",
+        "detail_marker" : "Marker",
+        "detail_marker": "Marker",
         "link_album" : "https://imgur.com/a/CCGbdMO",
         "link_marker" : "Zy.cap",
         "child_content" : {
@@ -26,7 +28,8 @@ const data = [
         "image_home" : "https://cdn.shopify.com/s/files/1/0299/9497/5365/articles/4_-_yyxVN5B_720x.jpg?v=1664976482",
         "date" : `${monthNames[dateObj.getMonth()]}  ${dateObj.getUTCFullYear()}`,
         "main_content" : "Introducing our latest sculpt - Sala Naja. She is the combination of magical Basilisk and Hungarian Horntail - the nightmare for any wizard that need to fight them.",
-        "detail_content" : ["Product album ","Maker"],
+        "detail_album" : "Product album",
+        "detail_marker" : "Marker",
         "link_album" : "https://imgur.com/a/nfj5goR",
         "link_marker" : "Zy.cap",
         "child_content" : {
@@ -42,9 +45,11 @@ const data = [
         "image_home" : "https://cdn.shopify.com/s/files/1/0299/9497/5365/articles/Blanktronaut_11_720x.jpg?v=1664363752",
         "date" : `${monthNames[dateObj.getMonth()]}  ${dateObj.getUTCFullYear()}`,
         "main_content" : "Inspired by Interstellar, Blanktronaut is our new serie of blank artisans that match cherry profile.  The Light mode and dark mode astronaut  artisan will blend in to any keyset easily and provide a perfect focus point on your setup.",
-        "detail_content" : ["Product album","Maker : Zy.cap"],
+        "detail_album" : "Product album",
+        "detail_marker" : "Marker",
+        "detail_marker": "Marker",
         "link_album" : "https://imgur.com/a/HHfSxKS",
-        "link marker" : " Zy.cap",
+        "link_marker" : "Zy.cap",
         "child_content" : {
             "title" : "Specification",
             "content"  : ["Multi-shots resin","Shipping within 14 days.","Hand cast with resin, there's no paint involved.","These artisan keycaps are compatible with MX keyboards.  "]

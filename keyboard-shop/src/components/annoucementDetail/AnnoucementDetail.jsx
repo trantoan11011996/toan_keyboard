@@ -30,11 +30,42 @@ export default function AnnoucementDetail() {
             <h1>loading</h1>
           ) : (
             <div className="content-detail">
-              <h1 className="cotent-detail-header">{detail.title}</h1>
+              <h1 className="content-detail-header">{detail.title}</h1>
               <p className="content-detail-date">{detail.date}</p>
-              <p className="content-detail-main">{detail.main_content}</p>
+              <p className="content content-detail-main">
+                {detail.main_content}
+              </p>
+              <p className="content content-detail-album">
+                {detail.detail_album} :{" "}
+                <a className="album_link">{detail.link_album}</a>
+              </p>
+              <p className="content content-detail-marker">
+                {detail.detail_marker} : <a className="link-marker">{detail.link_marker}</a>
+              </p>
+              <div className="child-content">
+                <p className="content child-content-title">
+                  {detail.child_content.title} :{" "}
+                </p>
+                <ul className="child-content-list">
+                  {detail.child_content.content.map((value, index) => {
+                    return (
+                      <li className="content child-content-item">{value}</li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
           )}
+          <div className="footer-image-detail">
+            {detail == null ? (
+              <h1>Loading</h1>
+            ) : (
+              <img
+                className="image-footer"
+                src={detail.image_detail_footer}
+              ></img>
+            )}
+          </div>
         </div>
       </Container>
     </div>
