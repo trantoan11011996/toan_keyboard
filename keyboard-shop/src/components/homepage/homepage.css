@@ -141,3 +141,16 @@
     margin-top: 100px;
     margin-bottom: 100px;
 }
+.home-image-product{
+    border: 1px solid red;
+   height: fit-content;
+}
+.home-image-product img{
+    width: 100%;
+    height: auto;
+}
+.input-qty-home::-webkit-outer-spin-button,
+.input-qty-home::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
