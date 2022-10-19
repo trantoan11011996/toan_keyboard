@@ -45,6 +45,9 @@ export default function CategoryHomeList({ id, name }) {
   const deCreaseInput = () => {
     setInputQty((value) => value - 1);
   };
+  const getID = (id)=>{
+    console.log('id',id);
+  }
   return (
     <div className="category-home-list">
       <Container className="container-category-home" fluid>
@@ -92,7 +95,7 @@ export default function CategoryHomeList({ id, name }) {
               <div className="buy-now-home">
                 <button>Buy it now</button>
               </div>
-              <div className="view-detail">
+              <div className="view-detail" onClick={()=>getID(data[0]?._id)}>
                 <p>View full details</p>
                 <span>
                   <AiOutlineArrowRight></AiOutlineArrowRight>
