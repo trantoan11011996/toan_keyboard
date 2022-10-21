@@ -128,7 +128,7 @@ export default function Header() {
           </div>
         </Container>
       </div>
-      <div className={showSidebar ? "show" : "sidebar"}>
+      <div className={showSidebar ? "show-sidebar" : "sidebar"}>
         {Sidebarlist && (
           <div className="siderbar-list">
             <Nav className="nav-sidebar" activeKey="/home">

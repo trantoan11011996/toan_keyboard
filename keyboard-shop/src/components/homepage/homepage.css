@@ -153,3 +153,122 @@
     -webkit-appearance: none;
     margin: 0;
 }
+.home-content-product{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 40px;
+}
+.home-content-product .product-category{
+    font-size: 13px;
+    font-weight: 350;
+    letter-spacing: 2px;
+}
+.home-content-product .product-name{
+   position: relative;
+   top: -15px;
+   letter-spacing: 1px;
+   font-size: 38px;
+}
+.home-content-product .product-price{
+    position: relative;
+    top: -15px;
+    font-size: 17px;
+}
+.variant-title{
+    font-size: 15px;
+    font-weight: 300;
+    text-align: left;
+}
+.btn-select-variant{
+    margin-right: 15px;
+    margin-top: 15px;
+}
+.qty-input{
+    border: 1px solid #ccc;
+    width: 180px;
+    cursor: pointer;
+}
+.qty-product-home{
+    margin-top: 45px;
+}
+.qty-title{
+    text-align: left;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+.value-qty{
+    border: none;
+    background-color: rgb(243,243,243);
+    width: 65px;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    outline: none;
+}
+.btn-qty{
+    border: none;
+    background-color: rgb(243,243,243);
+    cursor: pointer;
+}
+.value-qty::-webkit-outer-spin-button,
+.value-qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.btn-qty {
+    font-size: 25px;
+}
+.add-cart-home{
+    margin-top: 25px;
+    width: 100%;
+    border : 1px solid black;
+    padding: 8px 0;
+}
+.add-cart-home button{
+    border: none;
+    background-color: rgb(243,243,243);
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+
+}
+.add-cart-home:hover{
+    border: 2px solid black;
+}
+.buy-now-home{
+    margin-top: 15px;
+    width: 100%;
+    background-color: black;
+    padding : 8px 0;
+}
+.buy-now-home button{
+    border: none;
+    color: #00FF31;
+    background-color: black;
+    font-size: 15px;
+}
+.buy-now-home:hover{
+    cursor: pointer;
+    transform: scale(1.008);
+}
+.view-detail{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+}
+.view-detail:hover>p{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.product-variant{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.variant-group{
+    margin-top: 15px;
+}

@@ -5,10 +5,15 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useState, useEffect, useContext } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import axios from "axios";
+import { Radio } from "antd";
 export default function CategoryHomeList({ id, name }) {
   const { productData } = useContext(AuthContext);
   const [variantMain, setVariantMain] = useState(null);
   const [detailProduct, setDetailProduct] = useState({});
+  const [selectedVariants, setSelectedVariants] = useState({});
+  const onSelectVariant = (variantName,variantValue)=>{
+    setSelectedVariants({...selectedVariants,[variantName]:variantValue})
+  } 
   const [inputQty, setInputQty] = useState(0);
 
   let data = [...productData].filter((item) => item.category._id == id);
@@ -45,49 +50,85 @@ export default function CategoryHomeList({ id, name }) {
   const deCreaseInput = () => {
     setInputQty((value) => value - 1);
   };
-  const getID = (id)=>{
-    console.log('id',id);
-  }
+  const getID = (id) => {
+    console.log("id", id);
+  };
+  useEffect(()=>{
+    console.log('selected variant',selectedVariants);
+    let foundVariant = data[0]?.variants.find((item)=>{
+        return item.attributes.every((attribute)=>{
+          return attribute.value == selectedVariants[attribute.name]
+        })
+    })
+    console.log("foundvariant",foundVariant);
+  },[selectedVariants])
+console.log('selected',selectedVariants);
   return (
     <div className="category-home-list">
       <Container className="container-category-home" fluid>
         <div className="main-product">
-          <Row>
+          <Row className="row-content-home-product">
             <Col md={6} className="home-image-product">
               <img src={data[0]?.imageMain}></img>
             </Col>
             <Col md={6} className="home-content-product">
-              <p>{data[0]?.category.name}</p>
-              <h1>{data[0]?.name}</h1>
-              <p>${data[0]?.price}.00</p>
-              {result?.map((item, index) => {
-                return (
-                  <>
-                    <h1>{item.name}</h1>
-                    {item.value.map((item, index) => {
-                      return <p>{item}</p>;
-                    })}
-                  </>
-                );
-              })}
+              <p className="product-category">{data[0]?.category.name}</p>
+              <h1 className="product-name">{data[0]?.name}</h1>
+              <p className="product-price">${data[0]?.price}.00</p>
+              <div className="product-variant">
+                {result?.map((item, index) => {
+                  return (
+                    <div>
+                      <Radio.Group
+                        className="variant-group"
+                        key={item.name}
+                        value={selectedVariants[item.name]}
+                        onChange={(e)=>onSelectVariant(item.name,e.target.value)}
+                      >
+                        <h1 className="variant-title">{item.name}</h1>
+                        {item.value.map((value, index) => {
+                          return (
+                            <Radio.Button
+                              key={value}
+                              value={value}
+                              className="btn-select-variant"
+                            >
+                              {value}
+                            </Radio.Button>
+                          );
+                        })}
+                      </Radio.Group>
+                    </div>
+                  );
+                })}
+              </div>
               <div className="qty-product-home">
-                {inputQty == 0 ? (
-                  <button onClick={() => deCreaseInput()} disabled>
-                    -
-                  </button>
-                ) : (
-                  <button onClick={() => deCreaseInput()}>
-                    -
-                  </button>
-                )}
+                <p className="qty-title">Quantity</p>
+                <div className="qty-input">
+                  {inputQty == 0 ? (
+                    <button
+                      className="btn-qty"
+                      onClick={() => deCreaseInput()}
+                      disabled
+                    >
+                      -
+                    </button>
+                  ) : (
+                    <button className="btn-qty" onClick={() => deCreaseInput()}>
+                      -
+                    </button>
+                  )}
 
-                <input
-                  className="input-qty-home"
-                  type="number"
-                  value={inputQty}
-                  min={0}
-                ></input>
-                <button onClick={() => inCreaseInput()}>+</button>
+                  <input
+                    className="value-qty"
+                    type="number"
+                    value={inputQty}
+                    min={0}
+                  ></input>
+                  <button className="btn-qty" onClick={() => inCreaseInput()}>
+                    +
+                  </button>
+                </div>
               </div>
               <div className="add-cart-home">
                 <button>Add to cart</button>
@@ -95,7 +136,7 @@ export default function CategoryHomeList({ id, name }) {
               <div className="buy-now-home">
                 <button>Buy it now</button>
               </div>
-              <div className="view-detail" onClick={()=>getID(data[0]?._id)}>
+              <div className="view-detail" onClick={() => getID(data[0]?._id)}>
                 <p>View full details</p>
                 <span>
                   <AiOutlineArrowRight></AiOutlineArrowRight>
