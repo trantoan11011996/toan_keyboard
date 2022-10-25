@@ -19,7 +19,7 @@ export default function ImageHomePage() {
       <div className="btn-product-page">
         <h1>Bin.KeyBoard</h1>
         <Link to={"/product-page"}>
-          <button>Shop all</button>
+          <button className="btn-shop-all">Shop all</button>
         </Link>
       </div>
     </div>

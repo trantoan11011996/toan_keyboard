@@ -30,7 +30,7 @@ export default function KeyBoardApp() {
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/about-page" element={<AboutPage />}></Route>
             <Route path="/product-page" element={<ProductPgae />}></Route>
-            <Route path="/detail-page" element={<Detailpage />}></Route>
+            <Route path="/product/:id" element={<Detailpage />}></Route>
             <Route path="/order-page" element={<OrderPage />}></Route>
             <Route path="/login-page" element={<LoginPage />}></Route>
             <Route path="/register-page" element={<RegisterPage />}></Route>

@@ -26,8 +26,8 @@
 .btn-product-page button{
     outline: none;
     border: none;
-    padding: 6px 18px 6px 18px;
-    font-size: 12px;
+    padding: 12px 20px 12px 20px;
+    font-size: 18px;
     font-weight: 500;
 }
 .btn-product-page button:hover{
@@ -271,4 +271,8 @@
 }
 .variant-group{
     margin-top: 15px;
+}
+.btn-shop-all{
+    color: black;
+    padding: 30px 40px;
 }

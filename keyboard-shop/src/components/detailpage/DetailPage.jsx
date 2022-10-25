@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "react-bootstrap";
 export default function Detailpage() {
+
+  const {id} = useParams()
+  console.log("id",id);
   return (
     <div className="detail-page">
-      <Link to={"/order-page"}>
-        <Button>Order</Button>
-      </Link>
       Detail-page
     </div>
   );

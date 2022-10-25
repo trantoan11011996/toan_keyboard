@@ -1,34 +1,46 @@
-import React from "react";
+import { useState } from "react";
 import {
   AiOutlineSearch,
   AiOutlineUser,
   AiOutlineShoppingCart,
+  AiOutlineClose
 } from "react-icons/ai";
 import "../header/header.css";
-import {
-  Button,
-  Modal,
-  Nav,
-  NavDropdown,
-  InputGroup,
-  Form,
-} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Input, Space } from 'antd';;
 export default function NavbarUser() {
-  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const { Search } = Input;
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+  const onSearch = (value) => console.log(value);
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   return (
     <div className="navbar-user">
-      <div className="user-icon search-icon" onClick={handleShow}>
+      <div className="user-icon search-icon" onClick={handleOpenModal}>
         <AiOutlineSearch></AiOutlineSearch>
       </div>
-      <div className="container-modal">
-  
-      </div>
+      {showModal ? (
+        <div className="container-modal" onClick={handleCloseModal}>
+          <div
+            className={showModal ? "show-modal-content" : "modal-content"}
+            onClick={(e) => {
+              // do not close modal if anything inside modal content is clicked
+              e.stopPropagation();
+            }}
+          >
+           <input className="input-search" placeholder="Search"></input>
+          <AiOutlineClose className="close-modal-btn" onClick={handleCloseModal}></AiOutlineClose>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+
       <Link to={"/login-page"}>
         <div className=" user-icon user-login-icon">
           <AiOutlineUser className="icon-user"></AiOutlineUser>
@@ -43,9 +55,8 @@ export default function NavbarUser() {
   );
 }
 
-
-
-{/* <div className="search-input">
+{
+  /* <div className="search-input">
             <InputGroup className="mb-3">
               <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
               <Form.Control
@@ -59,4 +70,5 @@ export default function NavbarUser() {
                 X
               </button>
             </div>
-          </div> */}
+          </div> */
+}

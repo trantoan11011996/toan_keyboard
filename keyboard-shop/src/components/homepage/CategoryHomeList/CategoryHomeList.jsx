@@ -15,9 +15,12 @@ export default function CategoryHomeList({ id, name }) {
     setSelectedVariants({...selectedVariants,[variantName]:variantValue})
   } 
   const [inputQty, setInputQty] = useState(0);
-
-  let data = [...productData].filter((item) => item.category._id == id);
-
+  console.log('product',productData);
+  let data = [...productData].filter((item) =>{
+    console.log('item',item.category);
+    return item.category._id == id
+  });
+  console.log('data',id);
   /// GET RESULT OF VARIANT TO RENDER
   const variant = data[0]?.variants;
   let arrAtributes = [];
@@ -62,7 +65,6 @@ export default function CategoryHomeList({ id, name }) {
     })
     console.log("foundvariant",foundVariant);
   },[selectedVariants])
-console.log('selected',selectedVariants);
   return (
     <div className="category-home-list">
       <Container className="container-category-home" fluid>

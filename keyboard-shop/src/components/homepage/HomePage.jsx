@@ -17,20 +17,17 @@ export default function HomePage() {
     .then((res)=>{
       return res.data
     }).then((data)=>{
+      setProductData(data.allProduct)
+      setCategoryData(data.allCategory) 
+      console.log('data',data);
       localStorage.setItem("product-list",JSON.stringify(data.allProduct))
       localStorage.setItem('category-list',JSON.stringify(data.allCategory))
-      // setProductData(data.allProduct)
-      // setCategoryData(data.allCategory) 
     })
     return products
   }
 
   useEffect(()=>{
     getAllProduct()
-    const productsLocal = JSON.parse(localStorage.getItem('product-list'))
-    const categorysLocal = JSON.parse(localStorage.getItem('category-list'))
-    setProductData(productsLocal)
-    setCategoryData(categorysLocal) 
   },[])
 
   return (

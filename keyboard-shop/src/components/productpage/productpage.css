@@ -1,9 +1,15 @@
 .product-page{
-    max-width: 1600px;
-    margin: 0 auto;
+    background-color: rgb(243,243,243);
+}
+.container-product-page{
+    max-width: 1500px;
 }
 .product-content{
     text-align: left;
+}
+.product-page-title{
+    text-align: left;
+    padding-top: 60px;
 }
 .product-content>h1{
     font-size: 15px;
@@ -28,4 +34,106 @@
 }
 .product-item:hover .product-content>h1{
     text-decoration: underline;
+}
+.dropdown-checkbox{
+
+}
+.checkbox-filter-stock{
+    border : 1px solid #ccc;
+    background-color: rgb(243,243,243);
+    width: 250px;
+}
+.filter-field{
+    display: flex;
+    gap: 10px;
+}
+.checkbox-container-stock{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+.dropdown-checkbox{
+    margin-left: 0px !important;
+}
+.checkbox-selected{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+.selected-content{
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.filter-filed-content{
+    color: black;
+    font-size: 13px;
+    font-weight: 350;
+    letter-spacing: 0.2px;
+}
+.dropdown-icon{
+    position: relative;
+    top: -2px;
+    font-size: 10px;
+}
+.filer-sort-product{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.checkbox-container-price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.dropdown-checkbox{
+    cursor: pointer;
+}
+.filter-filed-content:hover{
+    text-decoration: underline;
+}
+.filter-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.sort-container{
+    display: flex;
+    gap: 20px;
+}
+.sort-title{
+    display: block;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sort-filed-content{
+    color: black;
+    font-size: 13px;
+    font-weight: 350;
+    letter-spacing: 0.2px;
+}
+.total-product{
+    opacity: 0.6;
+    display: block;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading-product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lottie-location{
+    height: 250px;
+    width: 250px;
 }
