@@ -276,3 +276,12 @@
     color: black;
     padding: 30px 40px;
 }
+.loading-product-homepage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lottie-location-homepage{
+    height: 250px;
+    width: 250px;
+}

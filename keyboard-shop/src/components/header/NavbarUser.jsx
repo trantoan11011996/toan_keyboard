@@ -3,11 +3,11 @@ import {
   AiOutlineSearch,
   AiOutlineUser,
   AiOutlineShoppingCart,
-  AiOutlineClose
+  AiOutlineClose,
 } from "react-icons/ai";
 import "../header/header.css";
 import { Link } from "react-router-dom";
-import { Input, Space } from 'antd';;
+import { Input, Space } from "antd";
 export default function NavbarUser() {
   const [showModal, setShowModal] = useState(false);
   const { Search } = Input;
@@ -33,8 +33,14 @@ export default function NavbarUser() {
               e.stopPropagation();
             }}
           >
-           <input className="input-search" placeholder="Search"></input>
-          <AiOutlineClose className="close-modal-btn" onClick={handleCloseModal}></AiOutlineClose>
+            <div className="input-container">
+              <input type="text" className="input-search" placeholder=""/>
+              <label for="search" className="label-input">Search</label>
+            </div>
+            <AiOutlineClose
+              className="close-modal-btn"
+              onClick={handleCloseModal}
+            ></AiOutlineClose>
           </div>
         </div>
       ) : (

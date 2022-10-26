@@ -273,6 +273,7 @@
   margin-top: 40px;
   transform: translateY(-200%);
   z-index: 9000000000000000;
+  transition: all 0.2s ease;
 }
 .show-modal-content{
   position: relative;
@@ -295,18 +296,43 @@
     transform: translateY(0%);
   }
 }
+.close-modal-btn{
+  font-size: 18px;
+}
 .input-search{
+  border: 1px solid black;
+  width: 400px;
+  height: 50px;
+  padding: 0 20px;
+  transition: 0.25s ease;
   outline: none;
   background-color: rgb(202,203,202);
-  border : 1px solid black;
-  height: 50px;
-  width: 350px;
-  padding-left: 10px;
+}
+.input-search:focus{
+ border: 2px solid black;
+ transition:all 0.15s ease;
 }
 .input-search:hover{
   border: 2px solid black;
+  transition:all 0.15s ease;
 }
-.close-modal-btn{
-  cursor: pointer;
-  font-size: 25px;
+.input-container{
+  position: relative;
+}
+.label-input{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  user-select: none;
+  color: black;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+.input-search:focus + .label-input{
+  top: 18px;
+  font-size: 10px;
+ display: inline-block;
+ padding-bottom: 15px;
 }
