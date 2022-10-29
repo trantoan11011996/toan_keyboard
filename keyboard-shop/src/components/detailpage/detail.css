@@ -1,30 +1,127 @@
-.lottie-location{
-    width: 300px;
-    height: 300px;
+.lottie-location {
+  width: 300px;
+  height: 300px;
 }
-.detail-page{
-    background-color: rgb(243,243,243);
+.detail-page {
+  background-color: rgb(243, 243, 243);
 }
-.loading-product-detail{
+.loading-product-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+.container-detail {
+  padding: 60px 0;
+  max-width: 1500px;
+}
+.image-variant {
+  width: 100%;
+}
+.image-detail {
+  width: 100%;
+  margin-top: 20px;
+}
+.row-image-detail {
+  margin-top: 20px;
+}
+.detail-content {
+  text-align: left;
+}
+.btn-select-variant {
+  margin: 0 5px;
+}
+.radio-custom .ant-radio-wrapper {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 4px;
+}
+.radio-custom .ant-radio-wrapper-checked {
+  border: 2px solid blue;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.radio-custom .ant-radio {
+  position: absolute;
+  left: -9999px;
+  overflow: hidden;
+}
+
+.radio-custom .ant-radio + * {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.radio-custom{
+    margin-top: 30px;
+}
+.btn-select-variant{
+    margin-top: 10px;
+}
+.radio-custom>h1{
+    font-weight: 500;
+    opacity: 0.6;
+    font-size: 15px;
+}
+.qty-input{
+    border: 1px solid #ccc;
+    width: 180px;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
 }
-.container-detail{
-    padding: 60px 0;
-    max-width: 1500px;
+.btn-qty{
+    border: none;
+    background-color: rgb(243,243,243);
+    cursor: pointer;
 }
-.image-variant{
+.value-qty::-webkit-outer-spin-button,
+.value-qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.add-cart-home{
+    margin-top: 25px;
     width: 100%;
+    border : 1px solid black;
+    padding: 8px 0;
 }
-.image-detail{
+.add-cart-home button{
+    border: none;
+    background-color: rgb(243,243,243);
+    text-align: center;
     width: 100%;
-    margin-top: 20px;
+    font-size: 15px;
+
 }
-.row-image-detail{
-    margin-top: 20px;
+.add-cart-home:hover{
+    border: 2px solid black;
 }
-.detail-content{
-    text-align: left;
+.buy-now-home{
+    margin-top: 15px;
+    width: 100%;
+    background-color: black;
+    padding : 8px 0;
+    text-align: center;
+}
+.buy-now-home button{
+    border: none;
+    color: #00FF31;
+    background-color: black;
+    font-size: 15px;
+}
+.buy-now-home:hover{
+    cursor: pointer;
+    transform: scale(1.008);
+}
+.link-wrong-qty{
+  font-size: 23px;
+  font-weight: 700;
+}
+.col-total{
+  text-align: left;
 }

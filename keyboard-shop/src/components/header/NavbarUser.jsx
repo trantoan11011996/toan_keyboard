@@ -8,16 +8,23 @@ import {
 import "../header/header.css";
 import { Link } from "react-router-dom";
 import { Input, Space } from "antd";
-export default function NavbarUser() {
-  const [showModal, setShowModal] = useState(false);
-  const { Search } = Input;
+import { useContext } from "react";
+import { AuthContext, logOut } from "../../context/AuthContext";
 
-  const onSearch = (value) => console.log(value);
+export default function NavbarUser({ cart }) {
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const [showModal, setShowModal] = useState(false);
+  const [showBoxUser, setShowBoxUser] = useState(false);
+  console.log('cart header',cart);
   const handleOpenModal = () => {
     setShowModal(true);
   };
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+  const logOutUser = () => {
+    logOut();
+    setCurrentUser(null);
   };
   return (
     <div className="navbar-user">
@@ -34,8 +41,10 @@ export default function NavbarUser() {
             }}
           >
             <div className="input-container">
-              <input type="text" className="input-search" placeholder=""/>
-              <label for="search" className="label-input">Search</label>
+              <input type="text" className="input-search" placeholder="" />
+              <label for="search" className="label-input">
+                Search
+              </label>
             </div>
             <AiOutlineClose
               className="close-modal-btn"
@@ -47,34 +56,33 @@ export default function NavbarUser() {
         <></>
       )}
 
-      <Link to={"/login-page"}>
-        <div className=" user-icon user-login-icon">
-          <AiOutlineUser className="icon-user"></AiOutlineUser>
-        </div>
-      </Link>
-      <Link to={"/register-page"}>
-        <div className=" user-icon cart-user-icon">
-          <AiOutlineShoppingCart className="icon-user"></AiOutlineShoppingCart>
-        </div>
-      </Link>
+      <div
+        className=" user-icon user-login-icon"
+        onMouseLeave={(e) => setShowBoxUser(false)}
+      >
+        <Link to={currentUser ? "/user-info" : "/login-page"}>
+          <AiOutlineUser
+            className="icon-user"
+            onMouseEnter={(e) => setShowBoxUser(true)}
+          ></AiOutlineUser>
+        </Link>
+        {currentUser ? (
+          <>
+            {showBoxUser && (
+              <div className="user-box">
+                <p>{currentUser?.email}</p>
+                <button onClick={logOutUser}>log out</button>
+              </div>
+            )}
+          </>
+        ) : null}
+      </div>
+      <div className=" user-icon cart-user-icon">
+        <Link to={"/cart"}>
+          <AiOutlineShoppingCart className="icon-user cart-icon"></AiOutlineShoppingCart>
+          {cart.length !== 0 ? (<p className="cart-amount">{cart.length}</p>): null}
+        </Link>
+      </div>
     </div>
   );
-}
-
-{
-  /* <div className="search-input">
-            <InputGroup className="mb-3">
-              <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-              <Form.Control
-                placeholder="Username"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-            </InputGroup>
-            <div className="close-modal">
-              <button className="btn-close-modal" onClick={() => handleClose()}>
-                X
-              </button>
-            </div>
-          </div> */
 }

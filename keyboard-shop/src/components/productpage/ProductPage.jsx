@@ -15,7 +15,7 @@ import Lottie from "lottie-react";
 import location from "./animationJson/79794-world-locations.json";
 import success from "./animationJson/97240-success.json";
 
-export default function ProductPgae() {
+export default function ProductPage() {
   const [productListData, setProductListData] = useState();
   const [productCounts, setProductCounts] = useState("");
   const [isLoading, setIsLoading] = useState(undefined);
@@ -78,7 +78,6 @@ export default function ProductPgae() {
     loop: true,
   };
   return (
-    <AuthContext.Provider>
       <div className="product-page">
         <Container className="container-product-page" fluid>
           <h1 className="product-page-title">Products</h1>
@@ -127,6 +126,5 @@ export default function ProductPgae() {
           ;
         </Container>
       </div>
-    </AuthContext.Provider>
   );
 }

@@ -30,10 +30,10 @@ export default function ProductList({ data }) {
         ></List>
       </Space> */}
      <Row>
-      {data?.map((item)=>{
+      {data?.map((item,index)=>{
         return(
           <Col xl={3} md={6} xs={12}>
-            <ProductItem product={item} id={item._id}/>
+            <ProductItem product={item} id={item._id} key={index}/>
           </Col>
         )
       })}

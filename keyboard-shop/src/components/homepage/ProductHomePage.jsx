@@ -8,7 +8,6 @@ export default function ProductHomePage() {
   const { productData, categoryData, isLoading, complete } =
     useContext(AuthContext);
 
-  console.log("category", categoryData);
   return (
     <div className="product-homepage">
      {!complete ? (

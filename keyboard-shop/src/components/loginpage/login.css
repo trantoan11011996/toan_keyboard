@@ -45,9 +45,13 @@
 .form-login{
     border-radius: 0;
     outline: none;
-    color: white;
+    color: black;
 }
 .form-login:active{
     border: 1px solid black;
     outline: none;
+}
+.link-wrong-pass{
+    font-size: 18px;
+    font-weight: 600;
 }

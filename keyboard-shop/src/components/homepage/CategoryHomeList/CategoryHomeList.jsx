@@ -6,21 +6,21 @@ import { useState, useEffect, useContext } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import axios from "axios";
 import { Radio } from "antd";
+import { Link } from "react-router-dom";
 export default function CategoryHomeList({ id, name }) {
   const { productData } = useContext(AuthContext);
   const [variantMain, setVariantMain] = useState(null);
   const [detailProduct, setDetailProduct] = useState({});
   const [selectedVariants, setSelectedVariants] = useState({});
-  const onSelectVariant = (variantName,variantValue)=>{
-    setSelectedVariants({...selectedVariants,[variantName]:variantValue})
-  } 
+  const onSelectVariant = (variantName, variantValue) => {
+    setSelectedVariants({ ...selectedVariants, [variantName]: variantValue });
+  };
   const [inputQty, setInputQty] = useState(0);
-  console.log('product',productData);
-  let data = [...productData].filter((item) =>{
-    console.log('item',item.category);
-    return item.category._id == id
+  console.log("product", productData);
+  let data = [...productData].filter((item) => {
+    return item.category._id == id;
   });
-  console.log('data',id);
+  console.log("data", id);
   /// GET RESULT OF VARIANT TO RENDER
   const variant = data[0]?.variants;
   let arrAtributes = [];
@@ -56,15 +56,15 @@ export default function CategoryHomeList({ id, name }) {
   const getID = (id) => {
     console.log("id", id);
   };
-  useEffect(()=>{
-    console.log('selected variant',selectedVariants);
-    let foundVariant = data[0]?.variants.find((item)=>{
-        return item.attributes.every((attribute)=>{
-          return attribute.value == selectedVariants[attribute.name]
-        })
-    })
-    console.log("foundvariant",foundVariant);
-  },[selectedVariants])
+  useEffect(() => {
+    console.log("selected variant", selectedVariants);
+    let foundVariant = data[0]?.variants.find((item) => {
+      return item.attributes.every((attribute) => {
+        return attribute.value == selectedVariants[attribute.name];
+      });
+    });
+    console.log("foundvariant", foundVariant);
+  }, [selectedVariants]);
   return (
     <div className="category-home-list">
       <Container className="container-category-home" fluid>
@@ -85,7 +85,9 @@ export default function CategoryHomeList({ id, name }) {
                         className="variant-group"
                         key={item.name}
                         value={selectedVariants[item.name]}
-                        onChange={(e)=>onSelectVariant(item.name,e.target.value)}
+                        onChange={(e) =>
+                          onSelectVariant(item.name, e.target.value)
+                        }
                       >
                         <h1 className="variant-title">{item.name}</h1>
                         {item.value.map((value, index) => {
@@ -151,7 +153,9 @@ export default function CategoryHomeList({ id, name }) {
           <div className="category-home-product">
             <h1 className="category-title">{name}</h1>
             <ProductListHome data={data} />
-            <button className="btn-view-all">View all</button>
+            <Link to={"/product-page"}>
+              <button className="btn-view-all">View all</button>
+            </Link>
           </div>
         )}
       </Container>
