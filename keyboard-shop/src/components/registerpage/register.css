@@ -45,9 +45,14 @@
 .form-register{
     border-radius: 0;
     outline: none;
-    color: white;
+    color: black;
 }
 .form-register:active{
     border: 1px solid black;
     outline: none;
+}
+.alert-validation{
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 500;
 }

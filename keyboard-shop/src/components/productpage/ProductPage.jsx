@@ -32,8 +32,6 @@ export default function ProductPage() {
 
   // console.log('params',page);
   const getAllProduct = (page, inStock) => {
-    console.log("page", page);
-    console.log("inStock", inStock);
     const product = axios
       .get(
         `https://keyboard-shop.herokuapp.com/api/products?pageNumber=${page}&&countInStock=${inStock}&&priceFrom=${priceFrom}&&priceTo=${priceTo}&&fieldSort=${fieldSort}&&typeSort=${typeSort}`
@@ -44,7 +42,6 @@ export default function ProductPage() {
       .then((data) => {
         if (data) {
           setProductListData(data.allProduct);
-          console.log("data page", data.pageTotal);
           setTotalPage(data.pageTotal);
           setProductCounts(data.totalProduct);
           setIsLoading(true);
@@ -55,11 +52,9 @@ export default function ProductPage() {
       });
     return product;
   };
-  console.log("total page", totalPage);
   useEffect(() => {
     const page = params.get("page");
     const inStock = params.get("inStock");
-    console.log("instock", inStock);
     getAllProduct(page, inStock);
   }, [params]);
 

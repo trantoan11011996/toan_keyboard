@@ -125,3 +125,12 @@
 .col-total{
   text-align: left;
 }
+.description-title{
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.detail-title{
+  margin-top: 10px;
+  opacity: 0.8;;
+}

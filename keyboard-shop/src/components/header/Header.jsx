@@ -30,14 +30,14 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import CartBox from "../cartbox/CartBox";
 
 export default function Header() {
-  const { cart, cartBox, setCartBox, itemCart } = useContext(AuthContext);
+  const { cart, setCartBox,  itemAdd} = useContext(AuthContext);
   const [showSidebar, setShowSidebar] = useState(false);
   const [showSidebarCategory, setShowSidebarCategory] = useState(false);
   const [Sidebarlist, setShowSidebarList] = useState(true);
   const [categories, setCategories] = useState([]);
-  console.log("item cart", itemCart);
 
   const getAllCategory = () => {
     const listCategory = axios
@@ -46,7 +46,6 @@ export default function Header() {
         return res.data;
       })
       .then((data) => {
-        console.log(data.allCategory);
         setCategories(data.allCategory);
       });
     return listCategory;
@@ -57,21 +56,17 @@ export default function Header() {
 
   const handleOpenSidebar = () => {
     setShowSidebar(true);
-    console.log("true");
   };
   const handleCloseSidebar = () => {
     setShowSidebar(false);
-    console.log("false");
   };
   const handleOpenCategory = () => {
     setShowSidebarCategory(true);
     setShowSidebarList(false);
-    console.log("true true");
   };
   const handleCloseCategory = () => {
     setShowSidebarCategory(false);
     setShowSidebarList(true);
-    console.log("false false");
   };
   const closeCartBox = () => {
     setCartBox(false);
@@ -204,19 +199,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <div className={cartBox ? "show-cart-detail" : "cart-detail"}>
-        <button onClick={() => closeCartBox()}>x</button>
-       <div className="cart-box-info">
-            <Row>
-              <Col md={5}>
-                <img className="image-cart-box" src={itemCart.image}></img>
-              </Col>
-              <Col md={7}>
-              </Col>
-            </Row>
-       </div>
-        {itemCart.amount}
-      </div>
+      <CartBox itemAdd={itemAdd} cart={cart}/>
     </>
   );
 }

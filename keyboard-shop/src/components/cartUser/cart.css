@@ -100,3 +100,42 @@
 .delete-product-cart{
     cursor: pointer;
 }
+.cart-empty{
+    height: 350px;
+}
+.cart-empty h1{
+    margin-top: 80px;
+    font-weight: 700;
+}
+.cart-empty button{
+    outline: none;
+    border: none;
+    background-color: black;
+    color: #00EF31;
+    font-size: 18px;
+    padding: 13px 23px;
+    margin-top: 20px;
+}
+.cart-account{
+    margin-top: 40px;
+    font-size: 23px;
+    font-weight: 500;
+}
+.login-cart{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.login-cart span{
+    font-size: 16px;
+}
+.login-cart .login-link{
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: underline;
+}
+.cart-empty button:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}

@@ -20,6 +20,17 @@
 .link-forgot-pass{
     width: 500px;
     text-align: left;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    font-size: 17px;
+    text-decoration: underline;
+}
+.text-forgot-pass{
+    color: black;
+}
+.text-forgot-pass:hover{
+   font-weight: 500;
+   color: black;
 }
 .form-login{
     margin-top: 15px;

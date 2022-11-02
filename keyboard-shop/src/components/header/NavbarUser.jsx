@@ -6,26 +6,23 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 import "../header/header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Input, Space } from "antd";
 import { useContext } from "react";
 import { AuthContext, logOut } from "../../context/AuthContext";
 
 export default function NavbarUser({ cart }) {
-  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const { currentUser} = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   const [showBoxUser, setShowBoxUser] = useState(false);
-  console.log('cart header',cart);
+
   const handleOpenModal = () => {
     setShowModal(true);
   };
   const handleCloseModal = () => {
     setShowModal(false);
   };
-  const logOutUser = () => {
-    logOut();
-    setCurrentUser(null);
-  };
+
   return (
     <div className="navbar-user">
       <div className="user-icon search-icon" onClick={handleOpenModal}>
@@ -66,16 +63,6 @@ export default function NavbarUser({ cart }) {
             onMouseEnter={(e) => setShowBoxUser(true)}
           ></AiOutlineUser>
         </Link>
-        {currentUser ? (
-          <>
-            {showBoxUser && (
-              <div className="user-box">
-                <p>{currentUser?.email}</p>
-                <button onClick={logOutUser}>log out</button>
-              </div>
-            )}
-          </>
-        ) : null}
       </div>
       <div className=" user-icon cart-user-icon">
         <Link to={"/cart"}>

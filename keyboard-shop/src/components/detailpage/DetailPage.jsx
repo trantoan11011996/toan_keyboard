@@ -10,14 +10,16 @@ import "../detailpage/detail.css";
 import { Radio } from "antd";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import CartBoxContext from "../../context/CartBoxContext";
+import DetailContent from "./detailcontent/DetailContent";
 export default function Detailpage() {
-  const { addToCart,setCartBox } = useContext(AuthContext);
+  const { addToCart,alertDuplicate ,setAlertDuplicate} = useContext(AuthContext);
   const { id } = useParams();
   const [detailItem, setDetailItem] = useState({});
   const [variantRender, setVariantRender] = useState([]);
+  const [variantImage,setVariantImage] = useState('')
   const [productVariant, setProductVariant] = useState([]);
   const [complete, setComplete] = useState(undefined);
-  const [imageVariant, setImageVariant] = useState({});
   const [imageDetail, setImageDetail] = useState([]);
   const [selectedVariants, setSelectedVariants] = useState({});
   const [inputQty, setInputQty] = useState(0);
@@ -26,6 +28,7 @@ export default function Detailpage() {
 
   const onSelectVariant = (variantName, variantValue) => {
     setSelectedVariants({ ...selectedVariants, [variantName]: variantValue });
+    setAlertDuplicate(false)
   };
 
   const getDetail = async () => {
@@ -54,20 +57,20 @@ export default function Detailpage() {
     const detailData = async () => {
       await getDetail();
       const detail = JSON.parse(localStorage.getItem("detail-product"));
-      setImageVariant(detail.variants[0].image);
       setImageDetail(detail.imageDetails);
     };
     detailData();
   }, [id]);
-
+  console.log('detail',detailItem);
   useEffect(() => {
-    console.log("selected variant", selectedVariants);
     let foundVariant = productVariant.find((item) => {
       return item.attributes.every((attribute) => {
         return attribute.value == selectedVariants[attribute.name];
       });
     });
+    console.log(foundVariant);
     setVariantOrder(foundVariant);
+    setVariantImage(foundVariant?.image)
   }, [selectedVariants]);
   const inCreaseInput = () => {
     setInputQty((value) => value + 1);
@@ -99,7 +102,7 @@ export default function Detailpage() {
           <Row className="row-detail">
             <Col md={6}>
               <div className="image-variant">
-                <img className="image-variant" src={imageVariant}></img>
+                <img className="image-variant" src={variantImage}></img>
               </div>
               <Row className="row-image-detail">
                 {imageDetail.map((item, index) => {
@@ -112,6 +115,8 @@ export default function Detailpage() {
               </Row>
             </Col>
             <Col md={6} className="detail-content">
+              <div className="detail-info">
+
               <p className="detail-category-name">{detailItem.category.name}</p>
               <h1 className="detail-product-name">{detailItem.name}</h1>
               <p className="detil-product-price">${detailItem.price} USD</p>
@@ -165,7 +170,7 @@ export default function Detailpage() {
                     min={0}
                     value={inputQty}
                     onChange={hanldeAmount}
-                  ></input>
+                    ></input>
                   <button className="btn-qty" onClick={() => inCreaseInput()}>
                     +
                   </button>
@@ -174,7 +179,7 @@ export default function Detailpage() {
               <div className="add-cart-home">
                 <button
                   onClick={()=>handleAddToCart(inputQty)}
-                >
+                  >
                   Add to cart
                 </button>
               </div>
@@ -185,9 +190,18 @@ export default function Detailpage() {
               </Link>
               {alerQty && (
                 <Form.Text className="text-danger link-wrong-qty">
-                  <a>Please enter your quantity!!!</a>
+                  <a>Please enter your quantity</a>
                 </Form.Text>
               )}
+              {alertDuplicate &&(
+                 <Form.Text className="text-danger link-wrong-qty">
+                 <a>This item have already in your cart</a>
+               </Form.Text>
+              )}
+              </div>
+              <div className="detail-description">
+                  <DetailContent description={detailItem.desc}/>
+              </div>
             </Col>
           </Row>
         </Container>

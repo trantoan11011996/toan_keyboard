@@ -13,13 +13,12 @@ export default function CartUser() {
   const [variantCart, setVariantCart] = useState({});
   const [inputQtyCart, setInputQtyCart] = useState();
   const [variantOrder, setVariantOrder] = useState({});
+  console.log('cart',cart);
   let totalPriceOrder = 0;
-  console.log('cart-----------',cart);
   useEffect(() => {
     for (let item of cart) {
       setVariantCart(item.variant);
     }
-    // localStorage.setItem('itemInCart',JSON.stringify(cart))
   }, []);
   const handleTotalPrice = () => {
     for (let item of cart) {
@@ -29,33 +28,33 @@ export default function CartUser() {
   handleTotalPrice();
 
   const inCreaseInputCart = (id) => {
-    let cartMap
+    let cartMap;
     setCart(
-      cartMap =  cart.map((item) => {
+      (cartMap = cart.map((item) => {
         if (item._id === id) {
           const cloneItem = { ...item, amount: item.amount + 1 };
           cloneItem["totalPrice"] = cloneItem.amount * cloneItem.price;
           return cloneItem;
         }
         return item;
-      })
+      }))
     );
-    localStorage.setItem("itemInCart",JSON.stringify(cartMap));
+    localStorage.setItem("itemInCart", JSON.stringify(cartMap));
   };
 
   const deCreaseInputCart = (id) => {
-    let cartMap
+    let cartMap;
     setCart(
-      cartMap = cart.map((item) => {
+      (cartMap = cart.map((item) => {
         if (item._id === id) {
           const cloneItem = { ...item, amount: item.amount - 1 };
           cloneItem["totalPrice"] = cloneItem.amount * cloneItem.price;
           return cloneItem;
         }
         return item;
-      })
+      }))
     );
-    localStorage.setItem("itemInCart",JSON.stringify(cartMap));
+    localStorage.setItem("itemInCart", JSON.stringify(cartMap));
   };
   const hanldeAmountCart = (e) => {
     setInputQtyCart(Number(e.target.value));
@@ -172,9 +171,19 @@ export default function CartUser() {
             </Row>
           </>
         ) : (
-          <>
+          <div className="cart-empty">
             <h1>Your cart is empty</h1>
-          </>
+            <Link to={"/product-page"}>
+              <button className="continue-shopping">Continue shopping</button>
+            </Link>
+            <p className="cart-account">Have an account ?</p>
+            <div className="login-cart">
+              <Link to={"/login-page"}>
+                <p className="login-link">Log in</p>
+              </Link>
+              <span>to checkout faster</span>
+            </div>
+          </div>
         )}
       </Container>
     </div>

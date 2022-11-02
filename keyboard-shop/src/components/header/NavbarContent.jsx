@@ -19,7 +19,6 @@ export default function NavbarContent() {
         return res.data;
       })
       .then((data) => {
-        console.log(data.allCategory);
         setCategories(data.allCategory);
       });
     return listCategory;
@@ -32,7 +31,6 @@ export default function NavbarContent() {
     setShowDropdow(!showDropdow);
   };
   const getID=(id)=>{
-    console.log(id)
   }
   return (
     <Navbar expand="lg">
