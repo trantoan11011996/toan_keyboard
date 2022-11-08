@@ -1,0 +1,58 @@
+.refund{
+    height: 500px;
+    background-color: rgb(243,243,243);
+}
+.container-refund{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 80px;
+}
+.policy-content{
+    max-width: 450px;
+    text-align: justify;
+}
+.content{
+    font-weight: 400;
+}
+.shipping{
+    background-color: rgb(243,243,243);
+}
+.container-shipping{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.content-shipping{
+    max-width: 450px;
+    text-align: justify;
+}
+.content-shipping > p{
+    font-size: 16px;
+    font-weight: 350;
+}
+.term-service{
+    background-color: rgb(243,243,243);
+}
+.container-term-service{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+.content-term-service{
+    max-width: 500px;
+    text-align: justify;
+}
+.content-term-service h1{
+    font-size: 20px;
+}
+.container-term-service p{
+    font-size: 15px;
+    font-weight: 350;
+}

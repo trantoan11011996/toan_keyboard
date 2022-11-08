@@ -14,6 +14,7 @@ export default function LoginPage() {
     setEmail,
     password,
     setPassword,
+    setDisplayHeaderFooter
   } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -63,6 +64,9 @@ export default function LoginPage() {
     setEmail("");
     setPassword("");
   };
+  useEffect(()=>{
+    setDisplayHeaderFooter(true)
+  },[])
 
   return (
     <div className="login-page">

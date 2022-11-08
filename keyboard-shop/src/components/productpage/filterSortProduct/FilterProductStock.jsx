@@ -1,11 +1,14 @@
 import React from "react";
 import { Checkbox, Dropdown, Menu, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import { useState } from "react";
 
-export default function FilterProductStock() {
-  const onChange = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
+export default function FilterProductStock({setParamsKey}) {
+
+  const [selected,setSelected] = useState([])
+  
+  
+
   const menu = (
     <div className="checkbox-filter-stock checkbox-filter">
       <div className="checkbox-selected">
@@ -15,10 +18,10 @@ export default function FilterProductStock() {
         </div>
       </div>
       <div className="checkbox-container-stock ">
-        <Checkbox className="dropdown-checkbox" onChange={onChange}>
+        <Checkbox value="1" className="dropdown-checkbox" onChange={()=>setParamsKey("inStock",1)}>
           In Stock
         </Checkbox>
-        <Checkbox className="dropdown-checkbox" onChange={onChange}>
+        <Checkbox value="2" className="dropdown-checkbox" onChange={()=>setParamsKey("inStock",2)}>
           Out of Stock
         </Checkbox>
       </div>

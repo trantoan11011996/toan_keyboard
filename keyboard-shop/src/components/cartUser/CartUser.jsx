@@ -7,18 +7,21 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "../cartUser/cart.css";
 import { BsFillTrashFill } from "react-icons/bs";
+import CartBoxContext from "../../context/CartBoxContext";
 
 export default function CartUser() {
-  const { cart, setCart } = useContext(AuthContext);
+  const { cart, setCart, setDisplayHeaderFooter } = useContext(AuthContext)
+  const {setIsHeaderShow} = useContext(CartBoxContext)
   const [variantCart, setVariantCart] = useState({});
   const [inputQtyCart, setInputQtyCart] = useState();
   const [variantOrder, setVariantOrder] = useState({});
-  console.log('cart',cart);
   let totalPriceOrder = 0;
+
   useEffect(() => {
     for (let item of cart) {
       setVariantCart(item.variant);
     }
+    setDisplayHeaderFooter(true);
   }, []);
   const handleTotalPrice = () => {
     for (let item of cart) {
@@ -135,7 +138,7 @@ export default function CartUser() {
                           <input
                             className="value-qty"
                             type="number"
-                            value={item.amount}
+                            value={item.quantity}
                             min={0}
                             onChange={hanldeAmountCart}
                           ></input>
@@ -166,16 +169,20 @@ export default function CartUser() {
                   <p className="subtotal-content">Subtotal </p>
                   <p className="subtotal-value">${totalPriceOrder}</p>
                 </div>
-                <button className="btn-checkout">Check out</button>
+                <Link to={"/checkout"} className="link-checkout">
+                  <button
+                    className="btn-checkout"
+                    onClick={() => setDisplayHeaderFooter(false)}
+                  >
+                    Check out
+                  </button>
+                </Link>
               </Col>
             </Row>
           </>
         ) : (
           <div className="cart-empty">
             <h1>Your cart is empty</h1>
-            <Link to={"/product-page"}>
-              <button className="continue-shopping">Continue shopping</button>
-            </Link>
             <p className="cart-account">Have an account ?</p>
             <div className="login-cart">
               <Link to={"/login-page"}>

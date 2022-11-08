@@ -16,11 +16,9 @@ export default function CategoryHomeList({ id, name }) {
     setSelectedVariants({ ...selectedVariants, [variantName]: variantValue });
   };
   const [inputQty, setInputQty] = useState(0);
-  console.log("product", productData);
   let data = [...productData].filter((item) => {
     return item.category._id == id;
   });
-  console.log("data", id);
   /// GET RESULT OF VARIANT TO RENDER
   const variant = data[0]?.variants;
   let arrAtributes = [];
@@ -57,13 +55,12 @@ export default function CategoryHomeList({ id, name }) {
     console.log("id", id);
   };
   useEffect(() => {
-    console.log("selected variant", selectedVariants);
     let foundVariant = data[0]?.variants.find((item) => {
       return item.attributes.every((attribute) => {
         return attribute.value == selectedVariants[attribute.name];
       });
     });
-    console.log("foundvariant", foundVariant);
+    return foundVariant
   }, [selectedVariants]);
   return (
     <div className="category-home-list">
@@ -128,6 +125,7 @@ export default function CategoryHomeList({ id, name }) {
                     type="number"
                     value={inputQty}
                     min={0}
+                    onChange={(e)=>setInputQty(e.target.value)}
                   ></input>
                   <button className="btn-qty" onClick={() => inCreaseInput()}>
                     +
@@ -152,7 +150,7 @@ export default function CategoryHomeList({ id, name }) {
         {data.length == 0 ? null : (
           <div className="category-home-product">
             <h1 className="category-title">{name}</h1>
-            <ProductListHome data={data} />
+            <ProductListHome data={data} key={1}/>
             <Link to={"/product-page"}>
               <button className="btn-view-all">View all</button>
             </Link>

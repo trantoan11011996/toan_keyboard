@@ -7,11 +7,10 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 import axios from "axios";
 import "../header/header.css";
 
-
 export default function NavbarContent() {
   const [showDropdow, setShowDropdow] = useState(false);
   const [categories, setCategories] = useState([]);
-  
+
   const getAllCategory = () => {
     const listCategory = axios
       .get(`https://keyboard-shop.herokuapp.com/api/products`)
@@ -30,8 +29,7 @@ export default function NavbarContent() {
   const handleDropdown = () => {
     setShowDropdow(!showDropdow);
   };
-  const getID=(id)=>{
-  }
+  
   return (
     <Navbar expand="lg">
       <Container className="navbar-product">
@@ -41,22 +39,28 @@ export default function NavbarContent() {
               Home
             </Link>
           </Nav>
-          <Dropdown className="nav-content"
+          <Dropdown
+            className="nav-content"
             overlay={
               <Menu className="dropdow">
                 {categories.map((value, index) => {
-                  return(
-                    <Menu.Item className="dopdown-content"  key={index} onClick={()=>getID(value._id)}>{value.name}</Menu.Item> 
-                  )
+                  return (
+                    <Menu.Item
+                      className="dopdown-content"
+                      key={index}
+                    >
+                      <Link to={"/category/" + value._id}>{value.name}</Link>
+                    </Menu.Item>
+                  );
                 })}
               </Menu>
             }
             trigger={["click"]}
           >
-              <Space className="dropdown-title">
-                KeyBoard Kit
-             <AiOutlineArrowDown className="dropdow-icon"></AiOutlineArrowDown>
-              </Space>
+            <Space className="dropdown-title">
+              KeyBoard Kit
+              <AiOutlineArrowDown className="dropdow-icon"></AiOutlineArrowDown>
+            </Space>
           </Dropdown>
           <Nav className="nav-discord nav-content">
             <Link className="nav-link-discord link" to={""}>

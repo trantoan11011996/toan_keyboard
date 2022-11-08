@@ -33,7 +33,7 @@ import { AuthContext } from "../../context/AuthContext";
 import CartBox from "../cartbox/CartBox";
 
 export default function Header() {
-  const { cart, setCartBox,  itemAdd} = useContext(AuthContext);
+  const { cart, setCartBox, itemAdd } = useContext(AuthContext);
   const [showSidebar, setShowSidebar] = useState(false);
   const [showSidebarCategory, setShowSidebarCategory] = useState(false);
   const [Sidebarlist, setShowSidebarList] = useState(true);
@@ -140,7 +140,7 @@ export default function Header() {
         <div className={showSidebar ? "show-sidebar" : "sidebar"}>
           {Sidebarlist && (
             <div className="siderbar-list">
-              <Nav className="nav-sidebar" activeKey="/home">
+              <Nav className="nav-sidebar" activeKey="/">
                 <Nav.Item
                   className="nav-item-sidebar"
                   onClick={() => handleCloseSidebar()}
@@ -159,12 +159,19 @@ export default function Header() {
                 <Nav.Item className="nav-item-sidebar">
                   <Link className="nav-link-sidebar">Discord server</Link>
                 </Nav.Item>
-                <Nav.Item className="nav-item-sidebar">
-                  <Link className="nav-link-sidebar">Catalog</Link>
-                </Nav.Item>
-                <Nav.Item className="nav-item-sidebar">
-                  <Link className="nav-link-sidebar">About us</Link>
-                </Nav.Item>
+                <Link to={"/product-page"} onClick={() => handleCloseSidebar()}>
+                  <Nav.Item className="nav-item-sidebar">
+                    <Link className="nav-link-sidebar">Catalog</Link>
+                  </Nav.Item>
+                </Link>
+                <Link to={"/about-page"}>
+                  <Nav.Item
+                    className="nav-item-sidebar"
+                    onClick={() => handleCloseSidebar()}
+                  >
+                    <Link className="nav-link-sidebar">About us</Link>
+                  </Nav.Item>
+                </Link>
               </Nav>
             </div>
           )}
@@ -175,7 +182,11 @@ export default function Header() {
               </div>
               <ul className="sidebar-category-list">
                 {categories.map((item, index) => {
-                  return <li className="sidebar-category-item">{item.name}</li>;
+                  return (
+                    <li onClick={()=>handleCloseSidebar()}>
+                      <Link className="sidebar-category-item" to={"/category/" + item._id}>{item.name}</Link>
+                    </li>
+                  );
                 })}
               </ul>
             </div>
@@ -199,7 +210,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <CartBox itemAdd={itemAdd} cart={cart}/>
+      <CartBox itemAdd={itemAdd} cart={cart} />
     </>
   );
 }

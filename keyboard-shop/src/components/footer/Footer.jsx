@@ -14,16 +14,16 @@ export default function Footer() {
                 <h1 className="list-links-footer">Quick links</h1>
                 <ul className="list-links">
                   <li>
-                    <Link className="list-link-item">Privacy Policy</Link>
+                    <Link to={"/privacy-policy"} className="list-link-item">Privacy Policy</Link>
                   </li>
                   <li>
-                    <Link className="list-link-item">Refund Policy</Link>
+                    <Link to={"/refund-policy"} className="list-link-item">Refund Policy</Link>
                   </li>
                   <li>
-                    <Link className="list-link-item">Shipping Policy</Link>
+                    <Link to={"/shipping-policy"} className="list-link-item">Shipping Policy</Link>
                   </li>
                   <li>
-                    <Link className="list-link-item">Terms of Service</Link>
+                    <Link to={"/termservice-policy"} className="list-link-item">Terms of Service</Link>
                   </li>
                 </ul>
               </div>

@@ -1,12 +1,12 @@
 import React from "react";
 import { Checkbox, Dropdown, Menu, Space } from "antd";
 import { InputNumber } from "antd";
-import { DownOutlined } from '@ant-design/icons';
+import { DownOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import { useEffect } from "react";
 
-export default function FilterProductPrice() {
-  const onChange = (value) => {
-    console.log("changed", value);
-  };
+export default function FilterProductPrice({ setParamsKey,setPriceFrom,priceFrom,setPriceTo,priceTo }) {
+
   const menuPrice = (
     <div className="checkbox-filter-stock checkbox-filter">
       <div className="checkbox-selected">
@@ -15,21 +15,23 @@ export default function FilterProductPrice() {
         </div>
       </div>
       <div className="checkbox-container-price">
-        $<InputNumber
+        $
+        <input
+          type="number"
           min={1}
           className="dropdown-checkbox"
-          max={10}
-          defaultValue={0}
           placeholder="From"
-          onChange={onChange}
+          value={priceFrom}
+          onChange={(e) => setPriceFrom(e.target.value)}
         />
-        $<InputNumber
+        $
+        <input
+          type="number"
           min={1}
           className="dropdown-checkbox"
-          max={10}
-          defaultValue={0}
           placeholder="To"
-          onChange={onChange}
+          value={priceTo}
+          onChange={(e) =>setPriceTo(e.target.value)}
         />
       </div>
     </div>

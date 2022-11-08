@@ -15,7 +15,7 @@ export default function ResetPassword() {
       if (email) {
         console.log("email", email);
       } else {
-        console.log("else", email);
+        console.log("else");
       }
     }
   };

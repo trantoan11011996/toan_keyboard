@@ -3,7 +3,7 @@ import { List, Space } from "antd";
 import ProductCart from "./ProductCart";
 import { Row, Col } from "react-bootstrap";
 
-export default function ProductListHome({ data, id }) {
+export default function ProductListHome({ data, id, key }) {
   return (
     <div className="product-list-home">
       <div className="product-list">
@@ -23,14 +23,14 @@ export default function ProductListHome({ data, id }) {
           />
         </Space> */}
         <Row>
-                        {data.map((item,index)=>{
-                            return(
-                                <Col xl={3} lg={6} md={6} sm={12}>
-                                    <ProductCart product={item} key={index}/>
-                                </Col>
-                            )
-                        })}
-                    </Row>
+          {data.map((item, index) => {
+            return (
+              <Col xl={3} lg={6} md={6} sm={12}>
+                <ProductCart product={item} key={index} />
+              </Col>
+            );
+          })}
+        </Row>
       </div>
     </div>
   );

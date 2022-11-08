@@ -13,7 +13,6 @@ export default function Annoucements() {
     const result = getDataAnnoucement();
     setData(result);
   }, []);
-  console.log(data);
   return (
     <div className="container-annoucement">
       <Container className="wrap-content" fluid>
@@ -21,7 +20,7 @@ export default function Annoucements() {
         <Row className="row-content">
           {data.map((item, index) => {
             return (
-              <Col className="col-annoucement mt-3" md={4} sm={12}>
+              <Col className="col-annoucement mt-3" md={4} sm={12} key={index}>
                 <Link to={"/annoucement-detail/" + item.id}>
                 <div className="image-annouce-wrap">
                   <Image

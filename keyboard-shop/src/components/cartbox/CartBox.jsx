@@ -7,7 +7,6 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { Link } from "react-router-dom";
 export default function CartBox({ itemAdd, cart }) {
   const { isCartBoxOpen, setIsCartBoxOpen } = useContext(CartBoxContext);
-  console.log("item", itemAdd.variant);
   return (
     <div className={isCartBoxOpen ? "show-cart-detail" : "cart-detail"}>
       <div className="btn-close-wrap">

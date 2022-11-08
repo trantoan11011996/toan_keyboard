@@ -1,0 +1,146 @@
+.checkout-page {
+  height: 1000px;
+}
+.container-checkout-page {
+  height: 100%;
+}
+.row-checkout {
+  height: 100%;
+}
+.col-checkout {
+  padding-right: 50px;
+  padding-top: 55px;
+}
+.info-cart {
+  height: fit-content;
+  border-right: 1px solid #ccc;
+}
+.pay-cart {
+  height: 100%;
+  background-color: rgb(243, 243, 243);
+}
+.image-product {
+  width: 50%;
+  height: auto;
+}
+.checkout-header {
+  text-align: left;
+  font-size: 25px;
+  font-weight: 450;
+}
+.contact-user > p {
+  text-align: left;
+  margin-top: 25px;
+  font-weight: 450;
+  font-size: 17px;
+}
+.shipping-address {
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: 450;
+  font-size: 17px;
+}
+.input-group-checkout {
+}
+.row-input-checkout {
+  margin-top: 20px;
+}
+.checkout-email-col {
+  position: relative;
+}
+.input-email-checkout {
+  border: 1px solid black;
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  transition: 0.25s ease;
+  outline: none;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding-top: 12px;
+}
+.checkout-label-email {
+  position: absolute;
+  user-select: none;
+  left: 25px;
+  opacity: 0.6;
+}
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btn-continue {
+  margin-top: 40px;
+  padding: 18px 12px;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.return-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: rgb(25, 115, 250);
+  cursor: pointer;
+  font-weight: 500;
+}
+.return-content {
+  margin: 0;
+}
+.return-wrap:hover {
+  color: rgb(57, 133, 247);
+}
+.border-col-checkout {
+  border: 1px solid #ccc;
+  margin-top: 220px;
+}
+.footer-checkout {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 8px;
+}
+.link-footer {
+  margin-top: 0 !important;
+}
+.checkout-phone-col{
+    position: relative;
+}
+.input-phone-checkout {
+  border: 1px solid black;
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  transition: 0.25s ease;
+  outline: none;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.checkout-label-phone{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 23px;
+    cursor: pointer;
+}
+.noti-phone{
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50%;
+    padding: 0 10px;
+    background-color: rgb(115,115,115);
+    border : none;
+    top: 8px;
+    right: 20px;
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+}

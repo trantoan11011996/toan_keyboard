@@ -111,7 +111,7 @@
 .nav-sidebar{
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 .nav-item-sidebar{
   
@@ -211,9 +211,12 @@
 }
 .sidebar-category-item{
   cursor: pointer;
+  color: black;
 }
 .sidebar-category-item:hover{
   font-weight: 500;
+  color: black;
+  text-decoration: underline;
 }
 .dropdown-title{
   display: flex;
