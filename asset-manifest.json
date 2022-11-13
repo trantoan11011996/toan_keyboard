@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.dc339dd2.css",
-    "main.js": "/static/js/main.d6e8ab58.js",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/index.html",
-    "main.dc339dd2.css.map": "/static/css/main.dc339dd2.css.map",
-    "main.d6e8ab58.js.map": "/static/js/main.d6e8ab58.js.map"
+    "main.css": "/toan_keyboard/static/css/main.dc339dd2.css",
+    "main.js": "/toan_keyboard/static/js/main.908e56f3.js",
+    "static/media/logo.svg": "/toan_keyboard/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/toan_keyboard/index.html",
+    "main.dc339dd2.css.map": "/toan_keyboard/static/css/main.dc339dd2.css.map",
+    "main.908e56f3.js.map": "/toan_keyboard/static/js/main.908e56f3.js.map"
   },
   "entrypoints": [
     "static/css/main.dc339dd2.css",
-    "static/js/main.d6e8ab58.js"
+    "static/js/main.908e56f3.js"
   ]
 }
