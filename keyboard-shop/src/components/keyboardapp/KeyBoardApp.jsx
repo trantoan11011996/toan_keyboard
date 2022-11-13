@@ -200,7 +200,7 @@ export default function KeyBoardApp() {
             <div className="keyboard-app">
               {displayHeaderFooter && <Header />}
               <Routes>
-                <Route path="/" element={<HomePage />}></Route>
+                <Route path="/toan_keyboard/" element={<HomePage />}></Route>
                 <Route path="/about-page" element={<AboutPage />}></Route>
                 <Route path="/product-page" element={<ProductPage />}></Route>
                 <Route path="/product/:id" element={<Detailpage />}></Route>
