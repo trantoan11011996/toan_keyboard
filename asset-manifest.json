@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/keyboard-shop/static/css/main.dc339dd2.css",
-    "main.js": "/keyboard-shop/static/js/main.75a6034d.js",
-    "static/media/logo.svg": "/keyboard-shop/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/keyboard-shop/index.html",
-    "main.dc339dd2.css.map": "/keyboard-shop/static/css/main.dc339dd2.css.map",
-    "main.75a6034d.js.map": "/keyboard-shop/static/js/main.75a6034d.js.map"
+    "main.css": "/toan-keyboard/static/css/main.dc339dd2.css",
+    "main.js": "/toan-keyboard/static/js/main.d25cfee9.js",
+    "static/media/logo.svg": "/toan-keyboard/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/toan-keyboard/index.html",
+    "main.dc339dd2.css.map": "/toan-keyboard/static/css/main.dc339dd2.css.map",
+    "main.d25cfee9.js.map": "/toan-keyboard/static/js/main.d25cfee9.js.map"
   },
   "entrypoints": [
     "static/css/main.dc339dd2.css",
-    "static/js/main.75a6034d.js"
+    "static/js/main.d25cfee9.js"
   ]
 }
