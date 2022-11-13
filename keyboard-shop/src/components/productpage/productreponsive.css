@@ -1,0 +1,34 @@
+@media only screen and (max-width: 768px) {
+  .filter-container {
+    display: none;
+  }
+  .sort-container {
+    display: none;
+  }
+  .wrap-total-product {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .filter-sort{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .filter-sort > p{
+    margin: 0 !important;
+  }
+}
+@media only screen and (min-width : 768px){
+    .container-modal-filter-sort{
+        display: none;
+    }
+    .content-modal-filter-sort{
+        display: none;
+    }
+    .filter-sort{
+        display: none;
+    }
+    .wrap-total-product{
+        display: none;
+    }
+}

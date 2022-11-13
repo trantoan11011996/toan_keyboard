@@ -10,7 +10,7 @@ export default function Footer() {
       <Container>
           <Row>
             <Col md={6}>
-              <div className="link-footer">
+              <div className="footer-link-page">
                 <h1 className="list-links-footer">Quick links</h1>
                 <ul className="list-links">
                   <li>

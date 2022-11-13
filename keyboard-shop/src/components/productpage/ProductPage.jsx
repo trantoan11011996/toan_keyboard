@@ -14,7 +14,7 @@ import SortProduct from "./filterSortProduct/SortProduct";
 import Lottie from "lottie-react";
 import location from "./animationJson/79794-world-locations.json";
 import success from "./animationJson/97240-success.json";
-
+import "../productpage/productreponsive.css";
 export default function ProductPage() {
   const [productListData, setProductListData] = useState();
   const [productCounts, setProductCounts] = useState("");
@@ -25,11 +25,12 @@ export default function ProductPage() {
   const [fieldSort, setFieldSort] = useState("");
   const [typeSort, setTypeSort] = useState("");
   const [params, setParams] = useSearchParams();
-  const [priceFromField,setPriceFormField] = useState("")
-  const [priceToField,setPriceToField] = useState("")
+  const [priceFromField, setPriceFormField] = useState("");
+  const [priceToField, setPriceToField] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   // console.log('params',page);
-  const getAllProduct = (page, inStock,priceFrom,priceTo) => {
+  const getAllProduct = (page, inStock, priceFrom, priceTo) => {
     // priceFrom = Number(priceFrom)
     // priceTo = Number(priceTo)
     const product = axios
@@ -41,7 +42,7 @@ export default function ProductPage() {
       })
       .then((data) => {
         if (data) {
-          console.log('data',data);
+          console.log("data", data);
           setProductListData(data.allProduct);
           setTotalPage(data.pageTotal);
           setProductCounts(data.totalProduct);
@@ -49,31 +50,31 @@ export default function ProductPage() {
           setTimeout(() => {
             setComplete(true);
           }, 1500);
-        }else{
-          console.log('looix');
+        } else {
+          console.log("looix");
         }
       });
     return product;
   };
-  
+
   useEffect(() => {
     const page = params.get("page");
     const inStock = params.get("inStock");
-    const pricefrom = params.get('priceFrom')
-    const priceto = params.get('priceTo')
+    const pricefrom = params.get("priceFrom");
+    const priceto = params.get("priceTo");
 
-    getAllProduct(page, inStock,priceFromField,priceToField);
-  }, [params,priceFromField,priceToField]);
+    getAllProduct(page, inStock, priceFromField, priceToField);
+  }, [params, priceFromField, priceToField]);
 
   const setParamsKey = (key, value) => {
     // => biến 1 mảng  thành 1 object (param là 1 object đặc biệt)
     let currentParams = Object.fromEntries([...params]);
     setParams({ ...currentParams, [key]: value });
   };
-  useEffect(()=>{
+  useEffect(() => {
     // setParamsKey("priceFrom",priceFromField)
     // setParamsKey("priceTo",priceToField)
-  },[priceFromField,priceToField])
+  }, [priceFromField, priceToField]);
 
   const option1 = {
     animationData: location,
@@ -84,52 +85,88 @@ export default function ProductPage() {
     loop: true,
   };
   return (
-      <div className="product-page">
-        <Container className="container-product-page" fluid>
-          <h1 className="product-page-title">Products</h1>
-          <div className="filer-sort-product">
-            <div className="filter-container">
-              <p className="filter-title">Filter :</p>
-              <div className="filter-product-price">
-                <FilterProductStock setParamsKey={setParamsKey} />
-              </div>
-              <div className="filter-product-price">
-                <FilterProductPrice setParamsKey={setParamsKey} setPriceFrom = {setPriceFormField} setPriceTo={setPriceToField} priceFrom={priceFromField} priceTo={priceToField}/>
-              </div>
+    <div className="product-page">
+      <Container className="container-product-page" fluid>
+        <h1 className="product-page-title">Products</h1>
+        <div className="filer-sort-product">
+          <div className="filter-container">
+            <p className="filter-title">Filter :</p>
+            <div className="filter-product-price">
+              <FilterProductStock setParamsKey={setParamsKey} />
             </div>
-            <div className="sort-container">
-              <p className="sort-title">Sort by : </p>
-              <div className="sort-product">
-                <SortProduct />
-              </div>
-              <p className="total-product">{productCounts} products</p>
+            <div className="filter-product-price">
+              <FilterProductPrice
+                setParamsKey={setParamsKey}
+                setPriceFrom={setPriceFormField}
+                setPriceTo={setPriceToField}
+                priceFrom={priceFromField}
+                priceTo={priceToField}
+              />
             </div>
           </div>
-          {!complete ? (
-            <div className="loading-product">
-              {/* <ReactLoading
+          <div className="sort-container">
+            <p className="sort-title">Sort by : </p>
+            <div className="sort-product">
+              <SortProduct />
+            </div>
+              <p className="total-product">{productCounts} products</p>
+          </div>
+          <div className="filter-sort" onClick={()=>setShowModal(true)}>
+            <p>Filter and sort</p>
+          </div>
+          <div className="wrap-total-product">
+            <p className="total-product">{productCounts} products</p>
+          </div>
+          {showModal && (
+            <div className="container-modal-filter-sort">
+              <div
+                className={
+                  showModal
+                    ? "show-content-modal-filter-sort"
+                    : "content-modal-filter-sort"
+                }
+              >
+                <div className="content-header-modal">
+                  <p>Filter and sort</p>
+                  <p onClick={()=>setShowModal(false)}>X</p>
+                </div>
+               <div className="filter-sort-modal">
+                   <div className="filter-stock-modal">
+
+                   </div>
+                   <div className="filter-price-modal">
+
+                   </div>
+                   <div className="sort-modal">
+                    
+                   </div>
+               </div>
+              </div>
+            </div>
+          )}
+        </div>
+        {!complete ? (
+          <div className="loading-product">
+            {/* <ReactLoading
                 type={"bars"}
                 color={"rgb(209,209,209)"}
                 height={50}
                 width={50}
               /> */}
-              <Lottie
-                animationData={location}
-                className="lottie-location"
-              />
-            </div>
-          ) : (
-            <div className="product-list-container">
-              <ProductList data={productListData} />
-            </div>
-          )}
-          <Pagination
-            defaultCurrent={1 * 10}
-            total={totalPage * 10}
-            onChange={(page) => setParamsKey("page", page)}
-          />
-          ;
-        </Container>
-      </div>
+            <Lottie animationData={location} className="lottie-location" />
+          </div>
+        ) : (
+          <div className="product-list-container">
+            <ProductList data={productListData} />
+          </div>
+        )}
+        <Pagination
+          defaultCurrent={1 * 10}
+          total={totalPage * 10}
+          onChange={(page) => setParamsKey("page", page)}
+        />
+        ;
+      </Container>
+    </div>
   );
 }

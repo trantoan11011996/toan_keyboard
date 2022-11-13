@@ -16,4 +16,8 @@
         background-color: rgb(0,255,49);
         color: black;
     }
+    .product-cart-image .cart-image{
+        width: 100%;
+        height: 100%;
+    }
 }

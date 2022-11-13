@@ -247,20 +247,53 @@ export default function CheckOutPage({}) {
             </Row>
           </Col>
           <Col md={6} className="col-checkout pay-cart">
-            <Row>
+            <div className="container-product-checkout">
               {cart?.map((item, index) => {
                 return (
-                  <>
-                    <Col md={6}>
+                  <Row className="row-container-content">
+                    <Col md={2} className="col-image-checkout">
                       <img className="image-product" src={item.image}></img>
                     </Col>
-                    <Col>
-                      <p>Price : {item.totalPrice}</p>
+                    <Col md={10} className="col-content-checkout">
+                      <Row className="row-content-checkout">
+                        <Col md={4} className="col-content-product-checkout">
+                          {Object.keys(item.variant).map((key, index) => {
+                            return (
+                              <p className="name-product-checkout">
+                                {key} : {item.variant[key]}
+                              </p>
+                            );
+                          })}
+                        </Col>
+                        <Col className="item-price-checkout" md={8}>
+                          <p>${item.totalPrice}</p>
+                        </Col>
+                      </Row>
                     </Col>
-                  </>
+                  </Row>
                 );
               })}
-              <p>total price : {total}</p>
+              <div className="border-bottom-product"></div>
+            </div>
+            <Row className="row-total-content">
+              <Col className="col-total-content subtotal-content" md={6}>
+                <p className="subtotal">Subtotal</p>
+                <p className="shipping">Shipping</p>
+              </Col>
+              <Col className="col-total-content price-content" md={6}>
+                <p className="total-cart">${total}</p>
+                <p className="shipping-content">Calculated at next step</p>
+              </Col>
+              <Col className="border-bottom-subtotal"></Col>
+            </Row>
+            <Row className="row-total">
+                <Col md={6}>
+                  <p className="total-content">Total</p>
+                </Col>
+                <Col md={6}>
+                  <p className="total-price-cart">USD ${total}</p>
+                </Col>
+                <Col className="border-bottom-total"></Col>
             </Row>
           </Col>
         </Row>
@@ -271,8 +304,8 @@ export default function CheckOutPage({}) {
 
 {
   /* <Link to={"/cart"}>
-        <button onClick={() => setDisplayHeaderFooter(true)}>
-            return to cart
+  <button onClick={() => setDisplayHeaderFooter(true)}>
+  return to cart
         </button>
-    </Link> */
+        </Link> */
 }

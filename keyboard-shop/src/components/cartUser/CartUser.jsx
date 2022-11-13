@@ -8,10 +8,11 @@ import { AuthContext } from "../../context/AuthContext";
 import "../cartUser/cart.css";
 import { BsFillTrashFill } from "react-icons/bs";
 import CartBoxContext from "../../context/CartBoxContext";
+import "../cartUser/cartreponsive.css";
 
 export default function CartUser() {
-  const { cart, setCart, setDisplayHeaderFooter } = useContext(AuthContext)
-  const {setIsHeaderShow} = useContext(CartBoxContext)
+  const { cart, setCart, setDisplayHeaderFooter } = useContext(AuthContext);
+  const { setIsHeaderShow } = useContext(CartBoxContext);
   const [variantCart, setVariantCart] = useState({});
   const [inputQtyCart, setInputQtyCart] = useState();
   const [variantOrder, setVariantOrder] = useState({});
@@ -80,7 +81,7 @@ export default function CartUser() {
               </Link>
             </div>
             <div className="cart-product-list">
-              <Row>
+              <Row className="row-cart-field">
                 <Col md={6}>
                   <p className="product-cart cart-field-title">PRODUCT</p>
                 </Col>
@@ -156,6 +157,80 @@ export default function CartUser() {
                       </Col>
                       <Col className="col-total" md={3}>
                         <p className="total-content">$ {item.totalPrice}</p>
+                      </Col>
+                    </Row>
+                  );
+                })}
+              </Row>
+              <Row className="row-cart-wrap-reponsive">
+                {cart.map((item, index) => {
+                  return (
+                    <Row className="row-cart">
+                      <Col md={12}>
+                        <div className="product-info">
+                          <Row>
+                            <Col md={12} className="col-image-cart">
+                              <img
+                                className="image-product-cart"
+                                src={item.image}
+                              ></img>
+                            </Col>
+                          </Row>
+                        </div>
+                      </Col>
+                      <Col md={12} className="col-qty-cart">
+                        <div className="wrap-content-qty-cart">
+                          <div className="col-content-cart col-name-product">
+                            {Object.keys(item.variant).map((key, index) => {
+                              return (
+                                <p>
+                                  {key} : {item.variant[key]}
+                                </p>
+                              );
+                            })}
+                          </div>
+                          <div className=" col-content-cart col-content-cart-input">
+                            <div className="qty-input">
+                              {item.amount == 0 ? (
+                                <button
+                                  className="btn-qty"
+                                  onClick={() => deCreaseInputCart()}
+                                  disabled
+                                >
+                                  -
+                                </button>
+                              ) : (
+                                <button
+                                  className="btn-qty"
+                                  onClick={() => deCreaseInputCart(item._id)}
+                                >
+                                  -
+                                </button>
+                              )}
+
+                              <input
+                                className="value-qty"
+                                type="number"
+                                value={item.quantity}
+                                min={0}
+                                onChange={hanldeAmountCart}
+                              ></input>
+                              <button
+                                className="btn-qty"
+                                onClick={() => inCreaseInputCart(item._id)}
+                              >
+                                +
+                              </button>
+                            </div>
+                            <BsFillTrashFill
+                              className="delete-product-cart"
+                              onClick={() => deleteProductCart(item._id)}
+                            ></BsFillTrashFill>
+                          </div>
+                          <div className="wrap-total-content col-content-cart">
+                            <p className="total-content-reponsive">$ {item.totalPrice}</p>
+                          </div>
+                        </div>
                       </Col>
                     </Row>
                   );

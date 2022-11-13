@@ -4,7 +4,7 @@ import { InputNumber } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import "../productreponsive.css"
 export default function FilterProductPrice({ setParamsKey,setPriceFrom,priceFrom,setPriceTo,priceTo }) {
 
   const menuPrice = (

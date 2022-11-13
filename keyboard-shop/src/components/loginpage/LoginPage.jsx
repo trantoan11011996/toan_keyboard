@@ -113,6 +113,9 @@ export default function LoginPage() {
       <Link to={"/register-page"}>
         <p className="create-account">Create account</p>
       </Link>
+      <a href="http://keyboardshop.herokuapp.com/api/auth/facebook" target="blank">
+            login facebook
+      </a>
     </div>
   );
 }
